@@ -10,8 +10,8 @@ processDescription = 0
 projCount = 0
 
 #open files for reading and writing
-fo = open("/Users/robertca/Downloads/CFA/CaryDevelopment-20131209.kml","r")
-fw = open("/Users/robertca/Downloads/CFA/fixed20131209.kml","w")
+fo = open("/Users/robertca/Projects/CaryKML/CaryDevelopment-20140616.kml","r")
+fw = open("/Users/robertca/Projects/CaryKML/rezoning-20140616.kml","w")
 
 #write the inital link of the fixed kml file
 fw.write("<?xml version=\"1.0\" encoding=\"utf-8\"?><kml xmlns=\"http://earth.google.com/kml/2.1\">" + "\n")
@@ -20,7 +20,7 @@ fw.write("<?xml version=\"1.0\" encoding=\"utf-8\"?><kml xmlns=\"http://earth.go
 for line in fo:
 	#print line
 	#if the link contains our folder name
-	if (line.find("kml_ft_CaryDevelopment_Site_Sub_Plan") > -1):
+	if (line.find("kml_ft_CaryDevelopment_Rezoning_Case") > -1):
 		#set our flag to 1
 		foundFolder = 1
 		print "FOLDER FOUND!!\n"
@@ -30,7 +30,7 @@ for line in fo:
 		#if the line is a description tag, we need to process differently
 		if (line.find("<description>") > -1):
 			#we need to process the description
-			processDescription = 1
+			processDescription = 0
 
 		#If the process flag is set
 		if (processDescription == 1):
